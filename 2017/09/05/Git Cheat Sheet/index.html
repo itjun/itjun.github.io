@@ -1,542 +1,42 @@
 <!DOCTYPE html>
-<html style="display: none;" lang="zh">
-    <head>
+<html lang="zh-CN">
+  <head>
     <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.5.0 -->
-    <script>
-        window.materialVersion = "1.5.0"
-        // Delete localstorage with these tags
-        window.oldVersion = [
-            'codestartv1',
-            '1.3.4',
-            '1.4.0',
-            '1.4.0b1'
-        ]
-    </script>
-
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-
-
-    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
-
-
-    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Title -->
-    
-    <title>
-        
-            Git Cheat Sheet | 
-        
-        itjun&#39; Blog
-    </title>
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="itjun">
-    <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="itjun,Git,GitHub">
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
-
-    <!-- Import queue -->
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
-
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
-
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="itjun&#39; Blog">
-
-    <!-- Site Verification -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     
-
-    <!-- RSS -->
-    
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import CSS -->
-    
-        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-        
-
-    
-
-    
-
-    <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-    overflow-x: hidden !important;
-  }
-  
-  code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
-
-
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
-      }
-    </style>
-
-
-
-
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-<!-- Import Font -->
-<!-- Import Roboto -->
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-
-
-<!-- Import Material Icon -->
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
-
-
-    <!-- Import jQuery -->
-    
-        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
-    
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://itjun.githun.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Git Cheat Sheet | itjun&#39; Blog">
-    <meta property="og:image" content="https://itjun.githun.io/img/favicon.png" />
-    <meta property="og:description" content="">
-    <meta property="og:article:tag" content="Git"> <meta property="og:article:tag" content="GitHub"> 
-
-    
-        <meta property="article:published_time" content="Tue Sep 05 2017 21:47:13 GMT+0000" />
-        <meta property="article:modified_time" content="Fri Oct 23 2020 10:37:18 GMT+0000" />
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Git Cheat Sheet | itjun&#39; Blog">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="https://itjun.githun.io/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://itjun.githun.io" />
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/index.html" />
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/index.html",
-    "headline": "Git Cheat Sheet",
-    "datePublished": "Tue Sep 05 2017 21:47:13 GMT+0000",
-    "dateModified": "Fri Oct 23 2020 10:37:18 GMT+0000",
-    "author": {
-        "@type": "Person",
-        "name": "itjun",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/avatar.png"
-        },
-        "description": "日拱一卒,不期速成"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "itjun&#39; Blog",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon.png"
-        }
-    },
-    "keywords": ",Git,GitHubitjun",
-    "description": "",
-}
-</script>
-
-
-    
-
-    <!-- Analytics -->
-    
-        <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-104681869-2', 'auto');ga('send', 'pageview');
-</script>
-    
-    
-    
-
-    <!-- Custom Head -->
-    
-
-<meta name="generator" content="Hexo 5.2.0"></head>
-
-
-    
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
-
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
-
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Post TOC -->
-
-    
-    <!-- Back Button -->
-    <!--
-    <div class="material-back" id="backhome-div" tabindex="0">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-           href="#" onclick="window.history.back();return false;"
-           target="_self"
-           role="button"
-           data-upgraded=",MaterialButton,MaterialRipple">
-            <i class="material-icons" role="presentation">arrow_back</i>
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
-        </a>
-    </div>
-    -->
-
-
-    <!-- Left aligned menu below button -->
-    
-    
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA"><span class="post-toc-number">3.</span> <span class="post-toc-text">创建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9B%B4%E6%94%B9"><span class="post-toc-number">4.</span> <span class="post-toc-text">更改</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%86%E6%94%AF"><span class="post-toc-number">5.</span> <span class="post-toc-text">分支</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%87%8D%E6%9E%84"><span class="post-toc-number">6.</span> <span class="post-toc-text">重构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BF%BD%E7%95%A5"><span class="post-toc-number">7.</span> <span class="post-toc-text">忽略</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9A%82%E5%AD%98"><span class="post-toc-number">8.</span> <span class="post-toc-text">暂存</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8E%86%E5%8F%B2"><span class="post-toc-number">9.</span> <span class="post-toc-text">历史</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%92%A4%E9%94%80"><span class="post-toc-number">10.</span> <span class="post-toc-text">撤销</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%8C%E6%AD%A5"><span class="post-toc-number">11.</span> <span class="post-toc-text">同步</span></a></li></ol>
-    </ul>
-    
-
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://ilovelan.oss-cn-shenzhen.aliyuncs.com/i-blog/thumbnail/2017/2017-09-05.png)">
-    
-            <p class="article-headline-p">
-                Git Cheat Sheet
-            </p>
-        </div>
-
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>itjun</strong>
-        <span>9月 05, 2017</span>
-    </div>
-
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">devices other</i>
-    <span class="visuallyhidden">devices other</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-    
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC2klEQVR42u3aS24bMRAEUN//0skBBBNV7IkzJt+sBGF+j1qUuptff648vrCxsbGxsbGxsbFfyf6Kj/oxH9d+fv7unM8nrq9N3hkbGxv7bHYCWH+fL1a7iOslKK7CxsbGvoC9DpX1+evoWkfm/H3W52BjY2Njr2+3R12H0LNLg42NjY29Dq01qQ28PDixsbGxsfcaNHmo7DWn2uX4oV4aNjY29uvZ+dD0PZ9/dL6NjY2N/WL2sxtx9ka5yX327omNjY19AzsPhrxEeXYDZdKEikYO2NjY2Eezk8uSGEsa93nU5TEZtbSwsbGxD2W3j0yoeZmRL9ykWMLGxsY+m92+aFsSTCJqMvTFxsbGvpPdNo/yRn8baUk7KWlUYWNjY9/DzmHtCyXxNgdvDnqxsbGxD2Lnw9e2bMibSnm5ki8lNjY29g3sSamQRFq+oG1TKY86bGxs7BvYedi0WzPbrTbtPTebStjY2NiHsueFwSTS8mvbES82Njb22ez8z31bHiQNqfnGoFEvDRsbG/tQdls2tNt69tpJD3yDjY2NfTR7PkbNYZPlSDb9PLxlBxsbG/v17H+xySbfypNg9sbS2NjY2Dez2yApRq1laym5/2ZTCRsbG/sg9sMh8VDItT9M1IrCxsbGPpqdj1dz9mRk2wZn8sNgY2Nj38PO4yEpNvKYyUcObfRiY2Nj38BuMZNXz69q43OzqYSNjY19HDvh5Y2kNpaeWlBsbGzsm9l7kZZvx8mHu3sj3noqgo2Njf3L2ZNBbBtyk8978YmNjY19A3s+cH1qPPDUwhWlCDY2NvZB7HlotWVDOwDIA+zbM7GxsbEvYLfNmnY58rb+3gbNB3pp2NjY2New8xjLy4nJU6LxAzY2NjZ2cM7mC5Vj43VBMtqyg42Njf3L2W1DZxI/bTspX+46wLCxsbGPYE8aN3sj2Em7/z/Mt7GxsbFfzL7nwMbGxsbGxsbGxn7N8Re4eQGTM4k45QAAAABJRU5ErkJggg==">
-    
-</ul>
-
-    
-
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-none-link" href="/tags/Git/" rel="tag">Git</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/GitHub/" rel="tag">GitHub</a>
-    </ul>
-    
-
-    <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-    <!-- Leancloud Views -->
-        <a class="post_share-link" href="#">
-            <li class="mdl-menu__item">
-                <span id="/2017/09/05/Git%20Cheat%20Sheet/" class="leancloud-views_num" data-flag-title="Git Cheat Sheet">
-     &nbsp;浏览量
-</span>
-
-            </li>
-        </a>
-    
-
-    
-        
-    
-
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Git Cheat Sheet&url=https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/index.html&pic=https://itjun.githun.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Git Cheat Sheet&url=https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/index.html&via=itjun" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
-
-    <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
-    
-
-    <!-- Share LinkedIn -->
-    
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/index.html&title=Git Cheat Sheet" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 LinkedIn
-            </li>
-        </a>
-    
-
-    <!-- Share QQ -->
-    
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=itjun&#39; Blog&title=Git Cheat Sheet&summary=&pics=https://itjun.githun.io/img/favicon.png&url=https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 QQ
-            </li>
-        </a>
-    
-
-    <!-- Share Telegram -->
-    
-        <a class="post_share-link" href="https://telegram.me/share/url?url=https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/index.html&text=Git Cheat Sheet" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Telegram
-            </li>
-        </a>
-    
-</ul>
-
-</div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+    <title>Git Cheat Sheet · itjun / 手记</title>
+    <meta name="description" content="日拱一卒，不期速成。这里记录 itjun 的开源项目与技术笔记。">
+    <meta name="theme-color" content="#f6f3ec">
+    <link rel="canonical" href="https://itjun.github.io/2017/09/05/Git%20Cheat%20Sheet/">
+    <link rel="icon" type="image/png" href="/images/avatar.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Git Cheat Sheet">
+    <meta property="og:description" content="日拱一卒，不期速成。这里记录 itjun 的开源项目与技术笔记。">
+    <meta property="og:url" content="https://itjun.github.io/2017/09/05/Git%20Cheat%20Sheet/">
+    <meta property="og:image" content="https://itjun.github.io/images/forest.webp">
+    <link rel="preload" href="/fonts/fieldnotes-serif.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/fieldnotes.css">
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header container">
+      <a class="wordmark" href="/" aria-label="itjun 手记首页">itjun <span>/ 手记</span></a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/#projects">项目</a>
+        <a href="/archives/">文章</a>
+        <a href="/about/">关于</a>
+        <a class="nav-github external-link" href="https://github.com/itjun" target="_blank" rel="noopener noreferrer">GitHub <span class="icon icon-external" aria-hidden="true"></span></a>
+      </nav>
+    </header>
+    <main id="main" class="container" tabindex="-1">
+      <article class="reading-page">
+  <header class="page-heading">
+    <a class="back-link" href="/archives/">全部文章</a>
+    <h1 class="page-title">Git Cheat Sheet</h1>
+    <p class="post-date"><time datetime="2017-09-05T13:47:13.000Z">2017.09.05</time></p>
+  </header>
+  <div class="prose"><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
 <p><code>GitHub Desktop</code> 提供了包含图形界面的桌面客户端，通过客户端可以完成大部分常用的仓库操作，同时可以自动更新Git的命令行版本，以适应新的场景。</p>
 </blockquote>
 <p>Git 全平台版</p>
@@ -547,81 +47,110 @@
 <p>对所有本地仓库的用户信息进行配置</p>
 </blockquote>
 <p>对你的 commit 操作设置关联的用户名</p>
-<pre><code class="shell">git config --global user.name &quot;[name]&quot;</code></pre>
+<pre><code class="shell">git config --global user.name &quot;[name]&quot;
+</code></pre>
 <p>对你的 commit 操作设置关联的邮箱地址</p>
-<pre><code class="shell">git config --global user.email &quot;[email address]&quot;</code></pre>
+<pre><code class="shell">git config --global user.email &quot;[email address]&quot;
+</code></pre>
 <p>更新默认编辑器</p>
-<pre><code class="shell">git config --global core.editor &quot;vim&quot;</code></pre>
+<pre><code class="shell">git config --global core.editor &quot;vim&quot;
+</code></pre>
 <p><strong>创建 SSH 连接</strong></p>
 <p>默认全局</p>
-<pre><code class="shell">ssh-keygen -t rsa -C &quot;[your github email]&quot;</code></pre>
+<pre><code class="shell">ssh-keygen -t rsa -C &quot;[your github email]&quot;
+</code></pre>
 <p>指定别名</p>
-<pre><code class="shell">ssh-keygen -t rsa -C &quot;[your github email]&quot; -f ~/.ssh/github-rsa</code></pre>
+<pre><code class="shell">ssh-keygen -t rsa -C &quot;[your github email]&quot; -f ~/.ssh/github-rsa
+</code></pre>
 <p><strong>更新仓库地址为 SSH 连接</strong></p>
 <p>获取远程连接信息</p>
-<pre><code class="shell">git remote -v</code></pre>
+<pre><code class="shell">git remote -v
+</code></pre>
 <p>更新远程 url </p>
-<pre><code class="shell">git remote set-url [remote] git@github.com:[your repository].git</code></pre>
+<pre><code class="shell">git remote set-url [remote] git@github.com:[your repository].git
+</code></pre>
 <p><strong>remote 的默认别名是 origin</strong></p>
 <p>检查是否连接到 GitHub </p>
-<pre><code class="shell">ssh -T git@github.com</code></pre>
+<pre><code class="shell">ssh -T git@github.com
+</code></pre>
 <p>增加代理</p>
 <pre><code class="shell">git config --global http.proxy &#39;socks5://127.0.0.1:1080&#39;
-git config --global https.proxy &#39;socks5://127.0.0.1:1080&#39;</code></pre>
+git config --global https.proxy &#39;socks5://127.0.0.1:1080&#39;
+</code></pre>
 <p>根据 .gitignore 更新文件缓存</p>
-<pre><code class="shell">git rm -r --cached . &amp;&amp; git add . &amp;&amp; git commit -m &#39;update .gitignore&#39;</code></pre>
+<pre><code class="shell">git rm -r --cached . &amp;&amp; git add . &amp;&amp; git commit -m &#39;update .gitignore&#39;
+</code></pre>
 <h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><p>创建一个本地的仓库，并设置名字</p>
-<pre><code class="shell">git init [project-name]</code></pre>
+<pre><code class="shell">git init [project-name]
+</code></pre>
 <p>下载一个项目以及它所有的版本历ß史</p>
-<pre><code class="shell">git clone [url]</code></pre>
+<pre><code class="shell">git clone [url]
+</code></pre>
 <h2 id="更改"><a href="#更改" class="headerlink" title="更改"></a>更改</h2><blockquote>
 <p>检查已有的编辑并执行 commit 操作</p>
 </blockquote>
 <p>列出所有新建或者更改的文件，这些文件需要被 commit</p>
-<pre><code class="shell">git status</code></pre>
+<pre><code class="shell">git status
+</code></pre>
 <p>展示那些没有暂存文件的差异</p>
-<pre><code class="shell">git diff</code></pre>
+<pre><code class="shell">git diff
+</code></pre>
 <p>将文件进行快照处理用于版本控制</p>
-<pre><code class="shell">git add [file]</code></pre>
+<pre><code class="shell">git add [file]
+</code></pre>
 <p>展示暂存文件与最新版本之间的不同</p>
-<pre><code class="shell">git diff --staged</code></pre>
+<pre><code class="shell">git diff --staged
+</code></pre>
 <p>将文件移除暂存区，但是保留其内容</p>
-<pre><code class="shell">git reset [file]</code></pre>
+<pre><code class="shell">git reset [file]
+</code></pre>
 <p>将文件快照永久地记录在版本历史中</p>
-<pre><code class="shell">git commit -m &quot;[descriptive message]&quot;</code></pre>
+<pre><code class="shell">git commit -m &quot;[descriptive message]&quot;
+</code></pre>
 <h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><blockquote>
 <p>分支的常见操作</p>
 </blockquote>
 <p>列出当前仓库中所有的本地分支</p>
-<pre><code class="shell">git branch</code></pre>
+<pre><code class="shell">git branch
+</code></pre>
 <p>建立一个新分支</p>
-<pre><code class="shell">git branch [branch-name]</code></pre>
+<pre><code class="shell">git branch [branch-name]
+</code></pre>
 <p>切换到一个特定的分支上并更新工作目录</p>
-<pre><code class="shell">git checkout [branch-name]</code></pre>
+<pre><code class="shell">git checkout [branch-name]
+</code></pre>
 <p>从当前分支建立一个新的子分支并切换到子分支</p>
-<pre><code class="shell">git checkout -b [branch-name]</code></pre>
+<pre><code class="shell">git checkout -b [branch-name]
+</code></pre>
 <p>合并特定分支的历史到当前分支</p>
-<pre><code class="shell">git merge [branch-name]</code></pre>
+<pre><code class="shell">git merge [branch-name]
+</code></pre>
 <p>删除特定的分支</p>
-<pre><code class="shell">git branch -D [branch-name]</code></pre>
+<pre><code class="shell">git branch -D [branch-name]
+</code></pre>
 <p>删除所有含关键字的分支</p>
-<pre><code class="shell">git branch | grep &#39;[key]&#39; | xargs git branch -D</code></pre>
+<pre><code class="shell">git branch | grep &#39;[key]&#39; | xargs git branch -D
+</code></pre>
 <h2 id="重构"><a href="#重构" class="headerlink" title="重构"></a>重构</h2><blockquote>
 <p>重定位并移除版本文件</p>
 </blockquote>
 <p>从工作目录中删除文件并暂存此删除</p>
-<pre><code class="shell">git rm [file]</code></pre>
+<pre><code class="shell">git rm [file]
+</code></pre>
 <p>从版本控制中移除文件，并在本地保存文件</p>
-<pre><code class="shell">git rm --cached [file]</code></pre>
+<pre><code class="shell">git rm --cached [file]
+</code></pre>
 <p>改变文件名并准备 commit</p>
-<pre><code class="shell">git mv [file-original] [file-renamed]</code></pre>
+<pre><code class="shell">git mv [file-original] [file-renamed]
+</code></pre>
 <h2 id="忽略"><a href="#忽略" class="headerlink" title="忽略"></a>忽略</h2><blockquote>
 <p>不包含临时文件和路径</p>
 </blockquote>
 <p>文本文件 .gitignore 可以防止一些特定的文件进入到版本控制中</p>
 <pre><code class="shell">*.log
 build/
-temp-*</code></pre>
+temp-*
+</code></pre>
 <p>列出所有项目中忽略的文件</p>
 <pre><code class="shell">git ls-files --others --ignored --exclude-standard
 
@@ -630,620 +159,79 @@ temp-*</code></pre>
 ```shell
 https://github.com/github/gitignore
 
-https://www.gitignore.io</code></pre>
+https://www.gitignore.io
+</code></pre>
 <h2 id="暂存"><a href="#暂存" class="headerlink" title="暂存"></a>暂存</h2><blockquote>
 <p>暂存一些未完成的更改</p>
 </blockquote>
 <p>临时存储所有修改的已跟踪文件</p>
-<pre><code class="shell">git stash</code></pre>
+<pre><code class="shell">git stash
+</code></pre>
 <p>重新存储所有最近被stash的文件</p>
-<pre><code class="shell">git stash pop</code></pre>
+<pre><code class="shell">git stash pop
+</code></pre>
 <p>列出所有被stash的更改</p>
-<pre><code class="shell">git stash list</code></pre>
+<pre><code class="shell">git stash list
+</code></pre>
 <p>放弃所有最近stash的更改</p>
-<pre><code class="shell">git stash drop</code></pre>
+<pre><code class="shell">git stash drop
+</code></pre>
 <h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><blockquote>
 <p>浏览并检查项目文件的发展</p>
 </blockquote>
 <p>列出当前分支的版本历史</p>
-<pre><code class="shell">git log</code></pre>
+<pre><code class="shell">git log
+</code></pre>
 <p>列出文件的版本历史，包括重命名</p>
-<pre><code class="shell">git log --follow [file]</code></pre>
+<pre><code class="shell">git log --follow [file]
+</code></pre>
 <p>展示两个不同分支之间的差异</p>
-<pre><code class="shell">git diff [first-branch]...[second-branch]</code></pre>
+<pre><code class="shell">git diff [first-branch]...[second-branch]
+</code></pre>
 <p>输出元数据以及特定commit的内容变化</p>
-<pre><code class="shell">git show [commit]</code></pre>
+<pre><code class="shell">git show [commit]
+</code></pre>
 <h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><blockquote>
 <p>擦除错误并更改历史</p>
 </blockquote>
 <p>撤销所有 [commit] 后的的 commit ，在本地保存更改</p>
-<pre><code class="shell">git reset [commit]</code></pre>
+<pre><code class="shell">git reset [commit]
+</code></pre>
 <p>还原本地所有未 commit 的修改</p>
-<pre><code class="shell">git checkout .</code></pre>
+<pre><code class="shell">git checkout .
+</code></pre>
 <p>放弃所有更改并回到某个特定的 commit ，不保留任何历史文件</p>
-<pre><code class="shell">git reset --hard [commit]</code></pre>
+<pre><code class="shell">git reset --hard [commit]
+</code></pre>
 <p>放弃所有更改并回到某个特定的 commit ，保留历史文件</p>
-<pre><code class="shell">git reset --soft [commit]</code></pre>
+<pre><code class="shell">git reset --soft [commit]
+</code></pre>
 <h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><blockquote>
 <p>注册一个远程的链接，交换仓库的版本历史</p>
 </blockquote>
 <p>下载远程仓库的所有历史</p>
-<pre><code class="shell">git fetch [remote]</code></pre>
+<pre><code class="shell">git fetch [remote]
+</code></pre>
 <p>合并远程分支到当前本地分支</p>
-<pre><code class="shell">git merge [remote]/[branch]</code></pre>
+<pre><code class="shell">git merge [remote]/[branch]
+</code></pre>
 <p>上传所有本地分支commit到GitHub上</p>
-<pre><code class="shell">git push [remote] [branch]</code></pre>
+<pre><code class="shell">git push [remote] [branch]
+</code></pre>
 <p>下载书签历史并合并更改</p>
-<pre><code class="shell">git pull</code></pre>
-
-        
-    
-
-    
+<pre><code class="shell">git pull
+</code></pre>
 </div>
-
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-    <!-- 使用 DISQUS -->
-<div id="disqus-comment">
-    <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_config = function () {
-        this.page.url = 'https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://itjun.githun.io/2017/09/05/Git%20Cheat%20Sheet/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-</script>
-<script type="text/ls-javascript" id="disqus-thread-script">
-    queue.offer(function() {
-            (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document;
-                var s = d.createElement('script');
-                s.src = '//itjun.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', + new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        });
-</script>
-
-</div>
-<style>
-    #disqus-comment{
-        background-color: #eee;
-        padding: 2pc;
-    }
-</style>
-
-                
-            </div>
-
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
+  <nav class="post-navigation" aria-label="相邻文章">
     
-
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-        <a href="/2017/08/31/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
-    
-</nav>
-
-        </div>
-    </div>
-
-
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
-    </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="itjun's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        l1091462907@qq.com
-        <b class="caret"></b>
-    </a>
-</div>
-
-
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
-            
-                <li>
-                    <a href="mailto:l1091462907@qq.com" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
-            
-        </ul>
-    </li>
-
-    <!-- Homepage -->
-    
-        <li id="sidebar-first-li">
-            <a href="/">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                主页
-            </a>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    归档
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a>
-            </ul>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-
-    <!-- Categories  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
-                
-                分类
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                <a class="sidebar_archives-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术<span class="sidebar_archives-count">8</span></a>
-            </ul>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-
-    <!-- Pages  -->
-    
-        <li>
-            <a href="/target" title="标签">
-                
-                    <i class="material-icons sidebar-material-icons">local_offer</i>
-                
-                标签
-            </a>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-        <li>
-            <a href="/gallery" title="映像">
-                
-                    <i class="material-icons sidebar-material-icons">image</i>
-                
-                映像
-            </a>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-        <li>
-            <a href="/links" title="友链">
-                
-                    <i class="material-icons sidebar-material-icons">people</i>
-                
-                友链
-            </a>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-        <li>
-            <a href="/about" title="关于">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                关于
-            </a>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-
-    <!-- Article Number  -->
-    
-</ul>
-
-
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
-
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
-
-<!-- Sidebar Divider -->
-
-
-<!-- Theme Material -->
-
-
-<!-- Help & Support -->
-<!--
-
--->
-
-<!-- Feedback -->
-<!--
-
--->
-
-<!-- About Theme -->
-<!--
-
--->
-
-    </div>
-
-    <!-- Sidebar Image -->
-    
-
-</aside>
-
-                    
-
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-
-    <!-- Facebook -->
-    
-
-    <!-- Google + -->
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Zhihu -->
-    
-
-    <!-- Bilibili -->
-    
-
-    <!-- Telegram -->
-    
-    
-    <!-- V2EX -->
-    
-</div>
-
-
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©&nbsp;2017&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>itjun' Blog
-            
-        </div>
-
-        <!-- Paradox Footer Right Section -->
-
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
-
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
-
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
-    
-</footer>
-
-
-                    <!-- Import JS File -->
-
-    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
-
-
-
-    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
-
-
-
-    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
-
-
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
-</script>
-
-
-
-    
-        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
-    
-
-
-
-    <!-- Leancloud -->
-    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-    <script>
-        AV.initialize('crpxxIrbo9tptQNCYtqTGTkS-gzGzoHsz', '7FtHpQBVanc9Nf0UwXcj1nQ4');
-    </script>
-    <script type="text/ls-javascript" id="leancloud-views-script">
-    function showTime(Counter) {
-        var query = new AV.Query(Counter);
-        $('.leancloud-views_num').each(function() {
-            var url = $(this).attr('id').trim();
-            query.equalTo('url', url);
-            query.find({
-                success: function(results) {
-                    if (results.length === 0) {
-                        var content = '0 ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                        return;
-                    }
-                    for (var i = 0; i < results.length; i++) {
-                        var object = results[i];
-                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    }
-                },
-                error: function(object, error) {
-                    console.log('Error: ' + error.code + ' ' + error.message);
-                }
-            });
-        });
-    }
-
-    function addCount(Counter) {
-      var Counter = AV.Object.extend('Counter');
-      url = $('.leancloud-views_num').attr('id').trim();
-      title = $('.leancloud-views_num').attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-      query.equalTo('url', url);
-      query.find({
-          success: function(results) {
-            if (results.length > 0) {
-                var counter = results[0];
-                counter.fetchWhenSave(true);
-                counter.increment('time');
-                counter.save(null, {
-                    success: function(counter) {
-                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    },
-                    error: function(counter, error) {
-                        console.log('Failed to save Visitor num, with error message: ' + error.message);
-                    }
-                });
-            } else {
-              var newcounter = new Counter();
-              newcounter.set('title', title);
-              newcounter.set('url', url);
-              newcounter.set('time', 1);
-              newcounter.save(null, {
-                  success: function(newcounter) {
-                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
-                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
-                      $(document.getElementById(url)).text(content);
-                  },
-                  error: function(newcounter, error) {
-                      console.log('Failed to create');
-                  }
-              });
-            }
-        },
-        error: function(error) {
-            console.log('Error:' + error.code + ' ' + error.message);
-        }
-      });
-    }
-    $(function() {
-        var Counter = AV.Object.extend('Counter');
-        if ($('.leancloud-views_num').length === 1) {
-            addCount(Counter);
-        } else if ($('.post-title-link').length > 1) {
-            showTime(Counter);
-        }
-    });
-</script>
-
-
-
-
-    <!-- Busuanzi -->
-    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-   <!-- 使用 DISQUS js 代码 -->
-<script id="dsq-count-scr" src="//itjun.disqus.com/count.js" async></script>
-
-
-
-
-
-<!-- UC Browser Compatible -->
-<script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('
-<link rel="stylesheet" href="/css/uc.css">
-');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
-</script>
-
-<!-- Import prettify js  -->
-
-
-    
-        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
-    
-
-
-<!-- Window Load -->
-<!-- add class for prettify -->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-
-    
-    
-        
-        
-        HanabiBrowser.start('pre code',true);
-    
-</script>
-
-<!-- MathJax Load-->
-
-
-<!-- Bing Background -->
-
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Custom Footer -->
-
-
-
-<script>
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
-
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
-        }
-    })()
-console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
-</script>
-
-                </main>
-            </div>
-        </body>
-    
+    <a href="/2017/08/31/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/"><span>下一篇</span>域名解析配置说明</a>
+  </nav>
+</article>
+
+    </main>
+    <footer class="site-footer container">
+      <span>© 2017–2026 itjun</span>
+      <a class="external-link" href="https://github.com/itjun" target="_blank" rel="noopener noreferrer"><span class="icon icon-github" aria-hidden="true"></span> GitHub <span class="icon icon-external" aria-hidden="true"></span></a>
+    </footer>
+  </body>
 </html>
